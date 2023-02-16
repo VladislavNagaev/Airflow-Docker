@@ -37,6 +37,12 @@ Depoyment of containers:
 docker-compose -f docker-compose.yaml --env-file ./airflow.env --profile flower up
 ~~~
 
+
+## Interfaces:
+---
+* [Airflow WebUi](http://127.0.0.1:8080/login)
+
+
 ## Technologies
 ---
 Project is created with:
