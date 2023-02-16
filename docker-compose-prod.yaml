@@ -44,7 +44,7 @@ x-airflow-common:
       source: ./plugins
       target: /opt/airflow/plugins    
     - type: bind
-      source: ./data
+      source: ${APPS_WORKSPACE}
       target: /workspace
   user: "${AIRFLOW_UID}:0"
   networks: 

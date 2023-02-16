@@ -34,7 +34,7 @@ make --jobs=$(nproc --all) --file Makefile
 
 Depoyment of containers:
 ~~~
-docker-compose -f docker-compose.yaml --env-file ./airflow.env --profile flower up --build --force-recreate
+docker-compose -f docker-compose.yaml --env-file ./airflow.env --profile flower up
 ~~~
 
 ## Technologies
