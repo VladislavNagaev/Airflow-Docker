@@ -1,0 +1,15 @@
+
+.git/
+
+.cache
+
+.env
+
+.*.swp
+
+dags/*
+data/*
+logs/*
+plugins/*
+
+*.tar
