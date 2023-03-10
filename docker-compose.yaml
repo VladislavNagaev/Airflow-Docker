@@ -46,6 +46,7 @@ x-airflow-common:
   # build:
   #   context: .
   #   dockerfile: base.Dockerfile
+  hostname: airflow
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor

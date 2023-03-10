@@ -21,6 +21,7 @@ version: "3.8"
 x-airflow-common:
   &airflow-common
   image: airflow-base:2.5.1
+  hostname: airflow
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
