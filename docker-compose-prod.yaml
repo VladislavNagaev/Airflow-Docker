@@ -21,7 +21,6 @@ version: "3.8"
 x-airflow-common:
   &airflow-common
   image: airflow-base:2.5.1
-  hostname: airflow
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -77,6 +76,7 @@ services:
   airflow-webserver:
     <<: *airflow-common
     container_name: airflow-webserver
+    hostname: airflow-webserver
     command: webserver
     ports:
       - target: 8080
@@ -91,6 +91,7 @@ services:
   airflow-scheduler:
     <<: *airflow-common
     container_name: airflow-scheduler
+    hostname: airflow-scheduler
     command: scheduler
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
@@ -101,17 +102,22 @@ services:
   airflow-worker-1:
     <<: *airflow-worker-common
     container_name: airflow-worker-1
+    hostname: airflow-worker-1
 
   airflow-worker-2:
     <<: *airflow-worker-common
     container_name: airflow-worker-2
+    hostname: airflow-worker-2
 
   airflow-worker-3:
     <<: *airflow-worker-common
     container_name: airflow-worker-3
+    hostname: airflow-worker-3
 
   airflow-triggerer:
     <<: *airflow-common
+    container_name: airflow-triggerer
+    hostname: airflow-triggerer
     command: triggerer
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
@@ -122,6 +128,7 @@ services:
   airflow-init:
     <<: *airflow-common
     container_name: airflow-init
+    hostname: airflow-init
     # yamllint disable rule:line-length
     command:
       - -c
@@ -210,6 +217,7 @@ services:
   airflow-cli:
     <<: *airflow-common
     container_name: airflow-cli
+    hostname: airflow-cli
     profiles:
       - debug
     command:
@@ -225,6 +233,7 @@ services:
   airflow-flower:
     <<: *airflow-common
     container_name: airflow-flower
+    hostname: airflow-flower
     profiles:
       - flower
     command: celery flower

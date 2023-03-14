@@ -1,5 +1,5 @@
 # Образ на основе которого будет создан контейнер
-FROM apache/airflow:2.5.1-python3.8
+FROM apache/airflow:2.5.1-python3.9
 
 LABEL maintainer="Vladislav Nagaev <vladislav.nagaew@gmail.com>"
 
