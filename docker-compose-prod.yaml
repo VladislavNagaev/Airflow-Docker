@@ -38,7 +38,7 @@ x-airflow-common:
       source: ./dags
       target: /opt/airflow/dags
     - type: bind
-      source: ./logs
+      source: ${APPS_LOGS}/airflow
       target: /opt/airflow/logs    
     - type: bind
       source: ./plugins
@@ -202,7 +202,7 @@ services:
     user: "0:0"
     volumes:
       - type: bind
-        source: ./logs
+        source: ${APPS_LOGS}/airflow
         target: /sources/logs
       - type: bind
         source: ./dags
