@@ -33,6 +33,8 @@ RUN \
     # --------------------------------------------------------------------------
     # Базовая настройка операционной системы
     # --------------------------------------------------------------------------
+    # Установка пароль пользователя root 
+    echo "root:root" | chpasswd && \
     # Замена ссылок на зеркало (https://launchpad.net/ubuntu/+archivemirrors)
     sed -i 's/htt[p|ps]:\/\/archive.ubuntu.com\/ubuntu\//http:\/\/mirror.truenetwork.ru\/ubuntu/g' /etc/apt/sources.list && \
     # Обновление путей
