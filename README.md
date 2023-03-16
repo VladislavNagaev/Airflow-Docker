@@ -6,25 +6,9 @@ To run airflow, you first need to run [postgres](https://github.com/VladislavNag
 
 Fill the file requirements.txt with necessary packages.
 
-Create database for airflow:
+Prepare postgres DB:
 ~~~
-# open postgres container
-docker exec -it postgres bash
-
-# run psql
-psql --username=postgres --dbname=postgres
-
-# create user and db
-CREATE USER airflow WITH PASSWORD 'airflow';
-CREATE DATABASE airflow;
-GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
-ALTER DATABASE airflow OWNER TO airflow;
-
-# exit from psql
-exit
-
-# exit from container
-exit
+cat ./initdb.sql | docker exec -i postgres psql --username=postgres --dbname=postgres
 ~~~
 
 Build image:
