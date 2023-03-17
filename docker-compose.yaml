@@ -46,6 +46,8 @@ x-airflow-common:
   # build:
   #   context: .
   #   dockerfile: base.Dockerfile
+  labels:
+    autoheal: 'true'
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -155,6 +157,8 @@ services:
     <<: *airflow-common
     container_name: airflow-init
     hostname: airflow-init
+    labels:
+      autoheal: 'false'
     # yamllint disable rule:line-length
     command:
       - -c
