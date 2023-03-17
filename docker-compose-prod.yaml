@@ -33,6 +33,7 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     AIRFLOW__CORE__DEFAULT_TIMEZONE: Europe/Moscow
+    SQLALCHEMY_SILENCE_UBER_WARNING: 1
   volumes:
     - type: bind
       source: ./dags
